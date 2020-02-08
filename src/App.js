@@ -278,6 +278,8 @@ class App extends Component{
     });
     return (
       <div className="App">
+        <h1>Monsters Rolodex</h1>
+        {/* bigelow rules */}
         <SearchBox 
           placeholder="Search Monster" 
           handleChange={this.handleChange}/>
