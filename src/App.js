@@ -249,6 +249,8 @@ class App extends Component{
       monsters: [],
       searchField:'',
     };
+
+    // this.handleChange = this.handleChange.bind(this); //Either use this or if not then define handleChange as es6 function. lexical scoping
   }
 
   componentDidMount(){
@@ -256,7 +258,17 @@ class App extends Component{
       // console.log(users);
       this.setState({monsters:users});
     }); */
-    this.setState({monsters:users});
+    this.setState({monsters:users});    
+  }
+  
+  /* handleChange(e){ //e is Synthatic Event constructed by react
+    // console.log(this);
+    this.setState({searchField:e.target.value});
+  } */
+
+  handleChange = (e)=>{ //e is Synthatic Event constructed by react
+    // console.log(this);
+    this.setState({searchField:e.target.value});
   }
   render(){
     const {monsters, searchField} = this.state; 
@@ -268,7 +280,7 @@ class App extends Component{
       <div className="App">
         <SearchBox 
           placeholder="Search Monster" 
-          handleChange={(e)=>this.setState({searchField:e.target.value})}/>
+          handleChange={this.handleChange}/>
         <CardList monsters={filtered_monsters}/>
       </div>
     );
