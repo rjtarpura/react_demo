@@ -245,7 +245,8 @@ class App extends Component{
     super(props);
 
     this.state = {
-      monsters: []
+      monsters: [],
+      searchFiel:'',
     };
   }
 
@@ -259,6 +260,10 @@ class App extends Component{
   render(){
     return (
       <div className="App">
+        <input 
+          type="search" 
+          placeholder="Search Monsters" 
+          onChange={(e)=>this.setState({searchFiel:e.target.value})}/>
         <CardList monsters={this.state.monsters}/>
       </div>
     );
