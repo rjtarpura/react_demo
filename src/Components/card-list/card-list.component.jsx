@@ -7,9 +7,7 @@ const CardList = (props)=>{
     return (
         <div className="card-list">
             {
-                props.monsters.filter((monster,id)=>{
-                    return (monster.name.toLowerCase().indexOf(props.search.toLowerCase())!=-1);
-                }).map((monster,id)=>{
+                props.monsters.map((monster,id)=>{
                     return <Card key={id} monster={monster}></Card>
                 })
             }
