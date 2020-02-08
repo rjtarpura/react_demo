@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import CardList from './Components/card-list/card-list.component';
+import SearchBox from './Components/search-box/search-box.component';
 
 const url = "https://jsonplaceholder.typicode.com/users";
 const users = [
@@ -265,10 +266,9 @@ class App extends Component{
     });
     return (
       <div className="App">
-        <input 
-          type="search" 
-          placeholder="Search Monsters" 
-          onChange={(e)=>this.setState({searchField:e.target.value})}/>
+        <SearchBox 
+          placeholder="Search Monster" 
+          handleChange={(e)=>this.setState({searchField:e.target.value})}/>
         <CardList monsters={filtered_monsters}/>
       </div>
     );
