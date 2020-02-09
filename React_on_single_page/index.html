@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">React Not Rendered</div>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script>
+
+        const Person = (props)=>{
+            return (
+                React.createElement('div',{},
+                    [
+                        React.createElement('h1',{},props.name),
+                        React.createElement('p',{},props.designation),
+                    ]
+                )
+            );
+        }
+        
+        class App extends React.Component{
+            
+            constructor(props){
+                super(props);
+            }
+
+            render(){
+                return (
+                    React.createElement(
+                        'div',
+                        {},
+                        React.createElement(
+                            'h1',
+                            {},
+                            [
+                                React.createElement('h1',{},"React is Rendered"),
+                                React.createElement(Person,{name:'Rakesh',designation:'PHP Developer'}),
+                                React.createElement(Person,{name:'Mehul',designation:'Android Developer'}),
+                            ]
+                        )
+                    )
+                );
+            }
+        }
+
+        /* const App = ()=>{
+            return (
+                React.createElement(
+                    'div',
+                    {},
+                    React.createElement(
+                        'h1',
+                        {},
+                        "React is rendered"
+                    )
+                )
+            );
+        } */
+
+        ReactDOM.render(React.createElement(App), document.getElementById('app'));
+
+    </script>
+</body>
+</html>
